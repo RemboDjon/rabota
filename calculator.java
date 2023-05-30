@@ -1,4 +1,4 @@
-import java.util.Arrays;
+
 import java.util.Scanner;
 
 public class calculator {
@@ -8,33 +8,34 @@ public class calculator {
         calc(input);
 
     }
-        public static String calc(String input) throws Exception {
-            String[] numbers = new String[0];
-            int result = 0;
+    public static String calc(String input) throws Exception {
+        String[] numbers;
+        int result;
 
-            if (input.indexOf('+') > 0) {
-                numbers = input.split("[+]");
-                result = Integer.parseInt(numbers[0]) + Integer.parseInt(numbers[1]);
-                if (Integer.parseInt(numbers[0])>10||Integer.parseInt(numbers[1])>10){
-                    throw new Exception("Не больше 10 братух");
-                }
+        if (input.indexOf('+') > 0) {
+            numbers = input.split("[+]",2);
+
+            result = Integer.parseInt(numbers[0]) + Integer.parseInt(numbers[1]);
+            if (Integer.parseInt(numbers[0])>10||Integer.parseInt(numbers[1])>10) {
+                throw new Exception("Не больше 10 братух");
+            }
                 System.out.println(result);
             } else if (input.indexOf('-') > 0) {
-                numbers = input.split("[-]");
+                numbers = input.split("[-]",2);
                 result = Integer.parseInt(numbers[0]) - Integer.parseInt(numbers[1]);
                 if (Integer.parseInt(numbers[0])>10||Integer.parseInt(numbers[1])>10){
                     throw new Exception("Не больше 10 братух");
                 }
                 System.out.println(result);
             } else if (input.indexOf('/') > 0) {
-                numbers = input.split("[/]");
+                numbers = input.split("[/]",2);
                 result = Integer.parseInt(numbers[0]) / Integer.parseInt(numbers[1]);
                 if (Integer.parseInt(numbers[0])>10||Integer.parseInt(numbers[1])>10){
                     throw new Exception("Не больше 10 братух");
                 }
                 System.out.println(result);
             } else if (input.indexOf('*') > 0) {
-                numbers = input.split("[*]");
+                numbers = input.split("[*]",2);
                 result = Integer.parseInt(numbers[0]) * Integer.parseInt(numbers[1]);
                 if (Integer.parseInt(numbers[0])>10||Integer.parseInt(numbers[1])>10){
                     throw new Exception("Не больше 10 братух");
@@ -47,4 +48,4 @@ public class calculator {
             return String.valueOf(result);
 
         }
-}
+    }
